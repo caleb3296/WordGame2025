@@ -1,0 +1,23 @@
+button {
+  display: block;       /* Stacks buttons vertically */
+  width: 80%;           /* Keeps buttons wide on mobile */
+  margin: 10px auto;    /* Centers the buttons */
+  padding: 15px;        /* Makes them easier to tap */
+  font-size: 18px;      /* Improves readability */
+  border: none;
+  background-color: #4CAF50;  /* Green color */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;   /* Smooth edges */
+}
+
+button:hover {
+  background-color: #45a049; /* Slightly darker on hover */
+}
+
+@media screen and (max-width: 600px) {
+  button {
+    width: 100%;        /* Full width on small screens */
+    font-size: 16px;
+  }
+}
