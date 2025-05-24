@@ -1,0 +1,16 @@
+# Ignore virtual environment (since Render installs dependencies from requirements.txt)
+venv/
+
+# Ignore node_modules (React dependencies—these get installed automatically)
+word-game-ui/node_modules/
+
+# Ignore temporary/cache files
+word-game-ui/node_modules/.cache
+__pycache__/
+
+# Ignore unnecessary files from Git
+.git/
+
+# Ignore any large local datasets that are stored in Google Drive
+resources/GoogleNews-vectors-negative300.bin.gz
+resources/most_common.csv
