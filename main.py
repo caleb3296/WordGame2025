@@ -13,20 +13,27 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 # CORS Configuration
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["https://wordgame2025-frontend.onrender.com"],
     allow_credentials=True,
-    allow_methods=["GET", "HEAD", "POST", "*"],  # Wildcard method allowance
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS", "HEAD"],  # Explicitly list OPTIONS globally
+    allow_headers=["Content-Type", "Authorization"],
 )
 
-# Middleware for logging requests and responses
+
 @app.middleware("http")
-async def log_request(request: Request, call_next):
-    logger.debug(f"Received {request.method} request for {request.url}")
+async def handle_options_request(request: Request, call_next):
+    if request.method == "OPTIONS":
+        headers = {
+            "Access-Control-Allow-Origin": "https://wordgame2025-frontend.onrender.com",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS, HEAD",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        }
+        return JSONResponse(content={}, headers=headers, status_code=200)
+
     response = await call_next(request)
-    logger.debug(f"Response Status: {response.status_code}, Headers: {response.headers}")
     return response
 
 # Paths for optimized files
