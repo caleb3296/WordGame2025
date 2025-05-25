@@ -34,9 +34,12 @@ def start_game():
     word_limit = len(df)
     start_word = df["Word"][random.randint(0, word_limit - 1)]
     finish_word = df["Word"][random.randint(0, word_limit - 1)]
-    
+
     response = JSONResponse(content={"start_word": start_word, "finish_word": finish_word})
     response.headers["Access-Control-Allow-Origin"] = "https://wordgame2025-frontend.onrender.com"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+
     return response
 
 @app.get("/similar/{word}")
