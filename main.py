@@ -13,7 +13,6 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 # CORS Configuration
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://wordgame2025-frontend.onrender.com"],
@@ -21,7 +20,6 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTIONS", "HEAD"],  # Explicitly list OPTIONS globally
     allow_headers=["Content-Type", "Authorization"],
 )
-
 
 @app.middleware("http")
 async def handle_options_request(request: Request, call_next):
@@ -89,3 +87,15 @@ async def check_win(word: str, target: str):
         return JSONResponse(content={}, status_code=200)
     
     return JSONResponse(content={"win": word == target})
+
+### **New Test Mode Endpoint**
+@app.post("/test")
+async def test_mode(data: dict):
+    """Accepts user-defined start and finish words."""
+    start_word = data.get("start_word")
+    finish_word = data.get("finish_word")
+
+    if not start_word or not finish_word:
+        return JSONResponse(content={"error": "Both words are required!"}, status_code=400)
+
+    return JSONResponse(content={"start_word": start_word, "finish_word": finish_word})
