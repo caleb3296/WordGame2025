@@ -14,19 +14,25 @@ function App() {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/start`).then((response) => {
-      setStartWord(response.data.start_word);
-      setFinishWord(response.data.finish_word);
-      fetchSimilarWords(response.data.start_word);
-    }).catch((error) => console.error("Error fetching start words:", error));
+    axios.get(`${API_BASE_URL}/start`, { withCredentials: true })
+      .then((response) => {
+        setStartWord(response.data.start_word);
+        setFinishWord(response.data.finish_word);
+        fetchSimilarWords(response.data.start_word);
+      })
+      .catch((error) => {
+        console.error("Error fetching start words:", error);
+      });
   }, []);
 
   const fetchSimilarWords = (word) => {
-    axios.get(`${API_BASE_URL}/similar/${word}`)
+    axios.get(`${API_BASE_URL}/similar/${word}`, { withCredentials: true })
       .then((response) => {
         setWords(response.data.similar_words);
       })
-      .catch((error) => console.error("Error fetching similar words:", error));
+      .catch((error) => {
+        console.error("Error fetching similar words:", error);
+      });
   };
 
   return (
