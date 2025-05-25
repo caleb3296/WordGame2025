@@ -10,21 +10,11 @@ app = FastAPI()
 # Enable CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://wordgame2025-frontend.onrender.com", "http://localhost:3000"]
+    allow_origins=["https://wordgame2025-frontend.onrender.com", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization"],
 )
-
-@app.options("/{any_path:path}")
-async def preflight_handler(any_path: str):
-    return JSONResponse(headers={
-        "Access-Control-Allow-Origin": "https://wordgame2025-frontend.onrender.com",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
-    })
-
-
 
 # Paths for optimized files
 filtered_word2vec_path = "./filtered_vectors.bin"
