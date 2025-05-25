@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-// Dynamically set API base URL
 const API_BASE_URL =
   process.env.NODE_ENV === "development"
     ? "http://127.0.0.1:8000"
@@ -13,6 +12,7 @@ function App() {
   const [finishWord, setFinishWord] = useState("");
   const [words, setWords] = useState([]);
   const [movesLeft, setMovesLeft] = useState(100); // Counter for moves
+  const [gameOverMessage, setGameOverMessage] = useState(""); // Message for popup
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/start`, { withCredentials: true })
@@ -28,7 +28,11 @@ function App() {
 
   const fetchSimilarWords = (word) => {
     if (movesLeft > 0) {
-      setMovesLeft(prev => prev - 1); // Decrease counter when player selects a word
+      setMovesLeft(prev => prev - 1);
+
+      if (word === finishWord) {
+        setGameOverMessage("Congratulations! You won! 🎉");
+      }
     }
 
     axios.get(`${API_BASE_URL}/similar/${word}`, { withCredentials: true })
@@ -40,14 +44,13 @@ function App() {
       });
 
     if (movesLeft <= 1) {
-      alert("Time's up! You lost!");
+      setGameOverMessage("Time's up! You lost! 😢");
     }
   };
 
-  // Determine counter color based on moves remaining
   const getColor = () => {
     if (movesLeft > 30) return "green";
-    if (movesLeft > 10) return "yellow";
+    if (movesLeft > 10) return "orange"; // Change yellow to orange
     return "red";
   };
 
@@ -79,6 +82,16 @@ function App() {
           </button>
         ))}
       </div>
+
+      {/* Game Over Popup */}
+      {gameOverMessage && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>{gameOverMessage}</h2>
+            <button onClick={() => window.location.reload()}>Restart Game</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
