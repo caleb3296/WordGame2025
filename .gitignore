@@ -14,3 +14,4 @@ __pycache__/
 # Ignore any large local datasets that are stored in Google Drive
 resources/GoogleNews-vectors-negative300.bin.gz
 resources/most_common.csv
+.vercel
