@@ -1,37 +1,32 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import gdown
+from fastapi.responses import JSONResponse
 import random
 import pandas as pd
 from gensim.models import KeyedVectors
 
 app = FastAPI()
 
+# Enable CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # Keeps local testing
+        "http://localhost:3000",  # Allows local development
         "https://wordgame2025-frontend.onrender.com"  # Allows live frontend access
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
-# Google Drive File IDs (Replace with your actual IDs)
-word2vec_file_id = "1OnmLfyPOLsdYP5OA8AREz1M4byKfzyOB"
-csv_file_id = "1kEdmY7geQQHB1a81JDdpTxWyiizSbyt-"
-
-# Paths for downloaded files
-word2vec_path = "./GoogleNews-vectors-negative300.bin.gz"
+# Paths for optimized files
+filtered_word2vec_path = "./filtered_vectors.bin"
 csv_path = "./most_common.csv"
 
-# Download and load Word2Vec model if not already present
-gdown.download(f"https://drive.google.com/uc?id={word2vec_file_id}", word2vec_path, quiet=False)
-w = KeyedVectors.load_word2vec_format(word2vec_path, binary=True, limit=50000)  # Adjust limit for size
+# Load the smaller Word2Vec model (MUCH faster now!)
+w = KeyedVectors.load(filtered_word2vec_path)
 
-# Download and load CSV file dynamically
-gdown.download(f"https://drive.google.com/uc?id={csv_file_id}", csv_path, quiet=False)
+# Load CSV file (Word list)
 df = pd.read_csv(csv_path)
 
 @app.get("/start")
@@ -39,13 +34,21 @@ def start_game():
     word_limit = len(df)
     start_word = df["Word"][random.randint(0, word_limit - 1)]
     finish_word = df["Word"][random.randint(0, word_limit - 1)]
-    return {"start_word": start_word, "finish_word": finish_word}
+    
+    response = JSONResponse(content={"start_word": start_word, "finish_word": finish_word})
+    response.headers["Access-Control-Allow-Origin"] = "https://wordgame2025-frontend.onrender.com"
+    return response
 
 @app.get("/similar/{word}")
 def get_similar_words(word: str):
-    words = w.most_similar(positive=[word], topn=10)
-    return {"similar_words": [w[0] for w in words]}
+    """Fetch similar words using Word2Vec."""
+    if word in w.key_to_index:
+        words = w.most_similar(positive=[word], topn=10)
+        return {"similar_words": [w[0] for w in words]}
+    else:
+        return JSONResponse(content={"error": "Word not found in model"}, status_code=404)
 
 @app.get("/check_win/{word}/{target}")
 def check_win(word: str, target: str):
+    """Check if the user has reached the target word."""
     return {"win": word == target}
