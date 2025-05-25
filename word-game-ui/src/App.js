@@ -44,7 +44,7 @@ function App() {
       });
 
     if (movesLeft <= 1) {
-      setGameOverMessage("Time's up! You lost! 😢");
+      setGameOverMessage("Out of tries! You lost! 😢");
     }
   };
 
