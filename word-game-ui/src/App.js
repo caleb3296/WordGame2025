@@ -12,6 +12,7 @@ function App() {
   const [finishWord, setFinishWord] = useState("");
   const [words, setWords] = useState([]);
   const [testMode, setTestMode] = useState(window.location.pathname === "/test");
+  const [gameOverMessage, setGameOverMessage] = useState(""); // Fix: Define game over message state
 
   useEffect(() => {
     if (!testMode) {
@@ -28,6 +29,11 @@ function App() {
   }, [testMode]);
 
   const fetchSimilarWords = (word) => {
+    if (word === finishWord) {
+      setGameOverMessage("🎉 You won! Congratulations! 🎉");
+      return;
+    }
+  
     axios.get(`${API_BASE_URL}/similar/${word}`, { withCredentials: true })
       .then((response) => {
         setWords(response.data.similar_words);
@@ -54,8 +60,18 @@ function App() {
       {testMode ? (
         <div>
           <h2>Enter your own start and target words:</h2>
-          <input type="text" placeholder="Start Word" value={startWord} onChange={e => setStartWord(e.target.value)} />
-          <input type="text" placeholder="Target Word" value={finishWord} onChange={e => setFinishWord(e.target.value)} />
+          <input 
+            type="text" 
+            placeholder="Start Word" 
+            value={startWord} 
+            onChange={e => setStartWord(e.target.value)} 
+          />
+          <input 
+            type="text" 
+            placeholder="Target Word" 
+            value={finishWord} 
+            onChange={e => setFinishWord(e.target.value)} 
+          />
           <button onClick={handleTestModeSubmit}>Start Game</button>
         </div>
       ) : (
@@ -71,6 +87,16 @@ function App() {
           </button>
         ))}
       </div>
+
+      {/* Game Over Popup */}
+      {gameOverMessage && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>{gameOverMessage}</h2>
+            <button onClick={() => window.location.reload()}>Restart Game</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

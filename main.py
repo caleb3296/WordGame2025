@@ -12,20 +12,29 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
-# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://wordgame2025-frontend.onrender.com"],
+    allow_origins=[
+        "http://localhost:3000"  # Allow local testing
+        #"https://wordgame2025-frontend.onrender.com"
+    ],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS", "HEAD"],  # Explicitly list OPTIONS globally
-    allow_headers=["Content-Type", "Authorization"],
+    allow_methods=["GET", "POST", "OPTIONS", "HEAD"],
+    allow_headers=["*"],  # Allow all headers
 )
+
 
 @app.middleware("http")
 async def handle_options_request(request: Request, call_next):
-    if request.method == "OPTIONS":
+    allowed_origins = [
+        "http://localhost:3000",
+        "https://wordgame2025-frontend.onrender.com"
+    ]
+    
+    origin = request.headers.get("Origin")
+    if request.method == "OPTIONS" and origin in allowed_origins:
         headers = {
-            "Access-Control-Allow-Origin": "https://wordgame2025-frontend.onrender.com",
+            "Access-Control-Allow-Origin": origin,
             "Access-Control-Allow-Methods": "GET, POST, OPTIONS, HEAD",
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
         }
@@ -33,6 +42,7 @@ async def handle_options_request(request: Request, call_next):
 
     response = await call_next(request)
     return response
+
 
 # Paths for optimized files
 filtered_word2vec_path = "./filtered_vectors.bin"
