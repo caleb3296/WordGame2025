@@ -39,22 +39,27 @@ w = KeyedVectors.load(filtered_word2vec_path)
 # Load CSV file (Word list)
 df = pd.read_csv(csv_path)
 
-# Explicitly allow HEAD and GET using api_route
-@app.api_route("/start", methods=["GET", "HEAD"])
+@app.api_route("/start", methods=["GET", "HEAD", "OPTIONS"])
 async def start_game(request: Request):
+    headers = {
+        "Access-Control-Allow-Origin": "https://wordgame2025-frontend.onrender.com",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, HEAD",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    }
+
+    # Handle OPTIONS requests for CORS preflight
+    if request.method == "OPTIONS":
+        return JSONResponse(content={}, headers=headers, status_code=200)
+
+    # Handle HEAD requests
     if request.method == "HEAD":
-        return JSONResponse(content={}, status_code=200)  # Respond to HEAD without body
-    
+        return JSONResponse(content={}, headers=headers, status_code=200)
+
     word_limit = len(df)
     start_word = df["Word"][random.randint(0, word_limit - 1)]
     finish_word = df["Word"][random.randint(0, word_limit - 1)]
 
-    response = JSONResponse(content={"start_word": start_word, "finish_word": finish_word})
-    response.headers["Access-Control-Allow-Origin"] = "https://wordgame2025-frontend.onrender.com"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-
-    return response
+    return JSONResponse(content={"start_word": start_word, "finish_word": finish_word}, headers=headers)
 
 @app.head("/similar/{word}")
 @app.get("/similar/{word}")
