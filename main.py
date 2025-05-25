@@ -7,10 +7,12 @@ from gensim.models import KeyedVectors
 
 app = FastAPI()
 
-# Enable CORS for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",  # Keeps local testing
+        "https://wordgame2025-frontend.onrender.com"  # Allows live frontend access
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
