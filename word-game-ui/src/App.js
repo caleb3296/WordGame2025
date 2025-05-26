@@ -15,7 +15,6 @@ function App() {
   const [testMode, setTestMode] = useState(window.location.pathname === "/test");
   const [gameOverMessage, setGameOverMessage] = useState(""); 
   const [leaderboard, setLeaderboard] = useState([]); // ✅ Store leaderboard data
-  const [playerName, setPlayerName] = useState(""); // ✅ Player name input
   const [clickCount, setClickCount] = useState(0); // ✅ Track clicks
 
   useEffect(() => {
@@ -65,8 +64,7 @@ function App() {
   };
 
   const submitScore = () => {
-    if (!playerName) return; // ✅ Prevent empty name submission
-    axios.post(`${API_BASE_URL}/leaderboard?player_name=${playerName}&score=${clickCount}&start_word=${startWord}&finish_word=${finishWord}`)
+    axios.post(`${API_BASE_URL}/leaderboard?score=${clickCount}&start_word=${startWord}&finish_word=${finishWord}`)
       .then(() => {
         fetchLeaderboard(); // ✅ Refresh leaderboard after submitting score
       })
@@ -84,12 +82,6 @@ function App() {
           {/* ✅ Main Game Screen */}
           <Route path="/" element={
             <>
-              <input 
-                type="text" 
-                placeholder="Enter your name" 
-                value={playerName} 
-                onChange={e => setPlayerName(e.target.value)} 
-              />
               {testMode ? (
                 <div>
                   <h2>Enter your own start and target words:</h2>
@@ -142,7 +134,6 @@ function App() {
                 <thead>
                   <tr>
                     <th>Rank</th>
-                    <th>Player Name</th>
                     <th>Clicks (Steps)</th>
                     <th>Start Word</th>
                     <th>Finish Word</th>
@@ -152,7 +143,6 @@ function App() {
                   {leaderboard.sort((a, b) => a.score - b.score).map((entry, index) => (
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{entry.player}</td>
                       <td>{entry.score}</td>
                       <td>{entry.start_word}</td>
                       <td>{entry.finish_word}</td>
