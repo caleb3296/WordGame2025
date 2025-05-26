@@ -13,11 +13,7 @@ mkdir -p logs
 echo "🔄 Updating dependencies..."
 pip freeze > requirements.txt
 
-# Verify critical dependencies
-echo "📂 Checking requirements..."
-cat requirements.txt | grep sqlalchemy || echo "⚠ Warning: SQLAlchemy not found!"
-
-# Run tests before deploying
+# ✅ Run tests before deploying
 echo "🔍 Running tests..."
 pytest -v --disable-warnings test_api.py | tee logs/test_output.log
 TEST_EXIT=$?
@@ -29,32 +25,28 @@ else
     echo "✅ All tests passed! Proceeding with deployment..."
 fi
 
-# Show files to be committed
+# ✅ Show files to be committed
 echo "📂 Files to be committed:"
 git status --short
 
-# Add files to staging
+# ✅ Commit & push changes
 git add .
-
-# Commit changes with timestamp
 commit_message="Auto-deploy: $(date)"
 echo "📝 Committing changes: $commit_message"
 git commit -m "$commit_message"
-
-# Push to repository
 echo "⬆ Pushing to remote..."
 git push origin main | tee logs/git_push.log
 
-# Deploy backend with log tailing
+# ✅ Deploy backend & capture logs
 echo "🟢 Deploying backend..."
-DEPLOY_ID=$(render deploys create srv-d0p3ui0dl3ps73afh78g --clear-cache --wait | tee logs/backend_deploy.log | grep -o 'dep-[a-zA-Z0-9]*')
+DEPLOY_ID=$(render deploys create srv-d0p3ui0dl3ps73afh78g --clear-cache --wait | tee logs/backend_deploy.log | awk '/Deploy dep-/ {print $NF}')
 echo "📡 Backend deployment ID: $DEPLOY_ID"
-render logs -r srv-d0p3ui0dl3ps73afh78g --tail | tee logs/backend_live.log &
+nohup render logs -r srv-d0p3ui0dl3ps73afh78g --tail > logs/backend_live.log 2>&1 &
 
-# Deploy frontend with log tailing
+# ✅ Deploy frontend & capture logs
 echo "🟢 Deploying frontend..."
-DEPLOY_ID=$(render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log | grep -o 'dep-[a-zA-Z0-9]*')
+DEPLOY_ID=$(render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log | awk '/Deploy dep-/ {print $NF}')
 echo "📡 Frontend deployment ID: $DEPLOY_ID"
-render logs -r srv-d0p7d68dl3ps73aho80g --tail | tee logs/frontend_live.log &
+nohup render logs -r srv-d0p7d68dl3ps73aho80g --tail > logs/frontend_live.log 2>&1 &
 
 echo "🎉 Deployment successful!"
