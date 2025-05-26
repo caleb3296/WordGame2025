@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # ✅ Replace 'yourpassword' with your actual PostgreSQL password
-DATABASE_URL = "postgresql://postgres:yourpassword@localhost/wordgame_leaderboard"
+DATABASE_URL = "postgresql://postgres:Derkaderka2@localhost/wordgame_leaderboard"
 
 # ✅ Set up the database engine
 engine = create_engine(DATABASE_URL)

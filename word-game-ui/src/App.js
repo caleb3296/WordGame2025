@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // ✅ Add routing
 
 const API_BASE_URL =
   process.env.NODE_ENV === "development"
@@ -12,7 +13,14 @@ function App() {
   const [finishWord, setFinishWord] = useState("");
   const [words, setWords] = useState([]);
   const [testMode, setTestMode] = useState(window.location.pathname === "/test");
-  const [gameOverMessage, setGameOverMessage] = useState(""); // Fix: Define game over message state
+  const [gameOverMessage, setGameOverMessage] = useState(""); 
+  const [leaderboard, setLeaderboard] = useState([]); // ✅ Store leaderboard data
+  const [playerName, setPlayerName] = useState(""); // ✅ Player name input
+  const [clickCount, setClickCount] = useState(0); // ✅ Track clicks
+
+  useEffect(() => {
+    fetchLeaderboard();
+  }, []);
 
   useEffect(() => {
     if (!testMode) {
@@ -30,10 +38,13 @@ function App() {
 
   const fetchSimilarWords = (word) => {
     if (word === finishWord) {
-      setGameOverMessage("🎉 You won! Congratulations! 🎉");
+      setGameOverMessage("🎉 You won! View the leaderboard! 🎉");
+      submitScore(); // ✅ Send score to leaderboard
       return;
     }
   
+    setClickCount(clickCount + 1); // ✅ Increment click count
+    
     axios.get(`${API_BASE_URL}/similar/${word}`, { withCredentials: true })
       .then((response) => {
         setWords(response.data.similar_words);
@@ -43,61 +54,120 @@ function App() {
       });
   };
 
-  const handleTestModeSubmit = () => {
-    axios.post(`${API_BASE_URL}/test`, { start_word: startWord, finish_word: finishWord })
+  const fetchLeaderboard = () => {
+    axios.get(`${API_BASE_URL}/leaderboard`)
       .then((response) => {
-        fetchSimilarWords(response.data.start_word);
+        setLeaderboard(response.data.leaderboard);
       })
       .catch((error) => {
-        console.error("Error in test mode:", error);
+        console.error("Error fetching leaderboard:", error);
+      });
+  };
+
+  const submitScore = () => {
+    if (!playerName) return; // ✅ Prevent empty name submission
+    axios.post(`${API_BASE_URL}/leaderboard?player_name=${playerName}&score=${clickCount}&start_word=${startWord}&finish_word=${finishWord}`)
+      .then(() => {
+        fetchLeaderboard(); // ✅ Refresh leaderboard after submitting score
+      })
+      .catch((error) => {
+        console.error("Error submitting score:", error);
       });
   };
 
   return (
-    <div style={{ textAlign: "center", position: "relative" }}>
-      <h1>Word Game {testMode && "(Test Mode)"}</h1>
+    <Router>
+      <div style={{ textAlign: "center", position: "relative" }}>
+        <h1>Word Game {testMode && "(Test Mode)"}</h1>
 
-      {testMode ? (
-        <div>
-          <h2>Enter your own start and target words:</h2>
-          <input 
-            type="text" 
-            placeholder="Start Word" 
-            value={startWord} 
-            onChange={e => setStartWord(e.target.value)} 
-          />
-          <input 
-            type="text" 
-            placeholder="Target Word" 
-            value={finishWord} 
-            onChange={e => setFinishWord(e.target.value)} 
-          />
-          <button onClick={handleTestModeSubmit}>Start Game</button>
-        </div>
-      ) : (
-        <h2>
-          Get from <strong>{startWord}</strong> to <strong>{finishWord}</strong>
-        </h2>
-      )}
+        <Routes>
+          {/* ✅ Main Game Screen */}
+          <Route path="/" element={
+            <>
+              <input 
+                type="text" 
+                placeholder="Enter your name" 
+                value={playerName} 
+                onChange={e => setPlayerName(e.target.value)} 
+              />
+              {testMode ? (
+                <div>
+                  <h2>Enter your own start and target words:</h2>
+                  <input 
+                    type="text" 
+                    placeholder="Start Word" 
+                    value={startWord} 
+                    onChange={e => setStartWord(e.target.value)} 
+                  />
+                  <input 
+                    type="text" 
+                    placeholder="Target Word" 
+                    value={finishWord} 
+                    onChange={e => setFinishWord(e.target.value)} 
+                  />
+                  <button onClick={() => submitScore()}>Start Game</button>
+                </div>
+              ) : (
+                <h2>Get from <strong>{startWord}</strong> to <strong>{finishWord}</strong></h2>
+              )}
 
-      <div>
-        {words.map((word) => (
-          <button key={word} onClick={() => fetchSimilarWords(word)}>
-            {word}
-          </button>
-        ))}
+              <div>
+                {words.map((word) => (
+                  <button key={word} onClick={() => fetchSimilarWords(word)}>
+                    {word}
+                  </button>
+                ))}
+              </div>
+
+              {/* ✅ Game Over Popup with Leaderboard Prompt */}
+              {gameOverMessage && (
+                <div className="popup">
+                  <div className="popup-content">
+                    <h2>{gameOverMessage}</h2>
+                    <Link to="/leaderboard">
+                      <button>View Leaderboard</button>
+                    </Link>
+                    <button onClick={() => window.location.reload()}>Restart Game</button>
+                  </div>
+                </div>
+              )}
+            </>
+          } />
+
+          {/* ✅ Leaderboard Page */}
+          <Route path="/leaderboard" element={
+            <div>
+              <h2>Leaderboard</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Player Name</th>
+                    <th>Clicks (Steps)</th>
+                    <th>Start Word</th>
+                    <th>Finish Word</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {leaderboard.sort((a, b) => a.score - b.score).map((entry, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{entry.player}</td>
+                      <td>{entry.score}</td>
+                      <td>{entry.start_word}</td>
+                      <td>{entry.finish_word}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <Link to="/">
+                <button>Back to Game</button>
+              </Link>
+            </div>
+          } />
+        </Routes>
       </div>
-
-      {/* Game Over Popup */}
-      {gameOverMessage && (
-        <div className="popup">
-          <div className="popup-content">
-            <h2>{gameOverMessage}</h2>
-            <button onClick={() => window.location.reload()}>Restart Game</button>
-          </div>
-        </div>
-      )}
-    </div>
+    </Router>
   );
 }
 
