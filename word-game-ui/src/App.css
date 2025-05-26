@@ -5,14 +5,14 @@ button {
   padding: 15px;        /* Makes them easier to tap */
   font-size: 18px;      /* Improves readability */
   border: none;
-  background-color: #4CAF50;  /* Green color */
+  background-color: #a71212;  /* Green color */
   color: white;
   cursor: pointer;
   border-radius: 5px;   /* Smooth edges */
 }
 
 button:hover {
-  background-color: #45a049; /* Slightly darker on hover */
+  background-color: #0e08bd; /* Slightly darker on hover */
 }
 
 @media screen and (max-width: 600px) {

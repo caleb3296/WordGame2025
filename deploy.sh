@@ -18,7 +18,7 @@ git commit -m "Auto-deploy: $(date)"
 git push origin main
 
 # Deploy backend
-render deploys create srv-d0p3ui0dl3ps73afh78g --wait
+#render deploys create srv-d0p3ui0dl3ps73afh78g --wait
 
 # Deploy frontend
 render deploys create srv-d0p7d68dl3ps73aho80g --wait
