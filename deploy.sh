@@ -8,12 +8,14 @@ source venv/bin/activate
 
 # Run tests before deploying (verbose mode)
 echo "🔍 Running tests..."
-pytest -v --disable-warnings test_api.py
+pytest -v --disable-warnings test_api.py | tee logs/test_output.log
+TEST_EXIT=$?  # ✅ Captures pytest exit code
 
-# If tests fail, stop deployment
-if [ $? -ne 0 ]; then
+if [ $TEST_EXIT -ne 0 ]; then
     echo "❌ Tests failed! Fix issues before deploying."
     exit 1
+else
+    echo "✅ All tests passed! Proceeding with deployment..."
 fi
 
 echo "✅ All tests passed! Proceeding with deployment..."
@@ -32,14 +34,14 @@ git commit -m "$commit_message"
 
 # Push to repository
 echo "⬆ Pushing to remote..."
-git push origin main
+git push origin main | tee logs/git_push.log
 
-# Deploy backend
-#echo "🟢 Deploying backend..."
-#render deploys create srv-d0p3ui0dl3ps73afh78g --wait
+# Deploy backend with verbose logs
+echo "🟢 Deploying backend..."
+render deploys create srv-d0p3ui0dl3ps73afh78g --wait | tee logs/backend_deploy.log
 
-# Deploy frontend
+# Deploy frontend with verbose logs
 echo "🟢 Deploying frontend..."
-render deploys create srv-d0p7d68dl3ps73aho80g --wait
+render deploys create srv-d0p7d68dl3ps73aho80g --wait | tee logs/frontend_deploy.log
 
 echo "🎉 Deployment successful!"

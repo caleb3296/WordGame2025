@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-8.3.5, pluggy-1.5.0 -- /home/caleb/development/WordGame2025/venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/caleb/development/WordGame2025
+plugins: anyio-4.5.2
+collecting ... collected 4 items
+
+test_api.py::test_get_leaderboard PASSED                                 [ 25%]
+test_api.py::test_post_leaderboard_entry PASSED                          [ 50%]
+test_api.py::test_get_start PASSED                                       [ 75%]
+test_api.py::test_get_similar_words PASSED                               [100%]
+
+========================= 4 passed, 1 warning in 1.87s =========================
