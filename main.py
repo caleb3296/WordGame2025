@@ -1,9 +1,11 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends  # ✅ Import Depends for dependencies
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import random
 import pandas as pd
 from gensim.models import KeyedVectors
+from sqlalchemy.orm import Session  # ✅ Import Session for database interaction
+from db import SessionLocal, LeaderboardEntry  # ✅ Ensure database models are imported
 
 import logging
 
@@ -16,13 +18,11 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000"  # Allow local testing
-        #"https://wordgame2025-frontend.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS", "HEAD"],
     allow_headers=["*"],  # Allow all headers
 )
-
 
 @app.middleware("http")
 async def handle_options_request(request: Request, call_next):
@@ -42,7 +42,6 @@ async def handle_options_request(request: Request, call_next):
 
     response = await call_next(request)
     return response
-
 
 # Paths for optimized files
 filtered_word2vec_path = "./filtered_vectors.bin"
@@ -109,3 +108,25 @@ async def test_mode(data: dict):
         return JSONResponse(content={"error": "Both words are required!"}, status_code=400)
 
     return JSONResponse(content={"start_word": start_word, "finish_word": finish_word})
+
+### **Fixed Leaderboard Endpoint**
+# ✅ Ensure database session dependency is included
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.post("/leaderboard")
+def add_score(player_name: str, score: int, db: Session = Depends(get_db)):
+    new_entry = LeaderboardEntry(player_name=player_name, score=score)
+    db.add(new_entry)
+    db.commit()
+    return JSONResponse(content={"message": "Score added successfully!"})
+
+@app.get("/leaderboard")
+def get_leaderboard(db: Session = Depends(get_db)):
+    """Retrieve leaderboard scores."""
+    top_scores = db.query(LeaderboardEntry).order_by(LeaderboardEntry.score.desc()).limit(10).all()
+    return JSONResponse(content={"leaderboard": [{"player": entry.player_name, "score": entry.score} for entry in top_scores]})
