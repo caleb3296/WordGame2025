@@ -1,175 +1,3 @@
-2025-05-26 15:45:51  Find out more about deployment here:
-2025-05-26 15:45:51  
-2025-05-26 15:45:51    bit.ly/CRA-deploy
-2025-05-26 15:45:51  
-2025-05-26 15:45:51  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
-2025-05-26 15:45:51  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
-2025-05-26 15:45:51  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
-2025-05-26 15:45:51  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
-2025-05-26 15:45:51  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
-2025-05-26 15:45:51  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
-2025-05-26 15:45:52  [34m[1m==>(B[m [1mUploading build...(B[m
-2025-05-26 15:45:59  [32m[1m==>(B[m [1mYour site is live 🎉(B[m
-2025-05-26 21:52:16  [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
-2025-05-26 21:52:16  [34m[1m==>(B[m [1mCloning from https://github.com/caleb3296/WordGame2025(B[m
-2025-05-26 21:52:22  [34m[1m==>(B[m [1mChecking out commit 95dc2f14b9a1d3b80e12056ae5d025dc38604e03 in branch main(B[m
-2025-05-26 21:52:23  [34m[1m==>(B[m [1mDownloading cache...(B[m
-2025-05-26 21:52:35  [34m[1m==>(B[m [1mTransferred 136MB in 8s. Extraction took 4s.(B[m
-2025-05-26 21:52:44  [34m[1m==>(B[m [1mInstalling dependencies with npm...(B[m
-2025-05-26 21:52:44  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
-2025-05-26 21:52:45  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
-2025-05-26 21:52:45  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
-2025-05-26 21:52:45  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
-2025-05-26 21:52:45  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
-2025-05-26 21:52:45  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
-2025-05-26 21:52:45  [34m[1m==>(B[m [1mUsing Bun version 1.1.0 (default)(B[m
-2025-05-26 21:52:45  [34m[1m==>(B[m [1mDocs on specifying a bun version: https://render.com/docs/bun-version(B[m
-2025-05-26 21:52:50  
-2025-05-26 21:52:50  up to date, audited 1848 packages in 5s
-2025-05-26 21:52:50  
-2025-05-26 21:52:50  156 packages are looking for funding
-2025-05-26 21:52:50    run `npm fund` for details
-2025-05-26 21:52:50  
-2025-05-26 21:52:50  157 vulnerabilities (124 moderate, 30 high, 3 critical)
-2025-05-26 21:52:50  
-2025-05-26 21:52:50  To address issues that do not require attention, run:
-2025-05-26 21:52:50    npm audit fix
-2025-05-26 21:52:50  
-2025-05-26 21:52:50  To address all issues (including breaking changes), run:
-2025-05-26 21:52:50    npm audit fix --force
-2025-05-26 21:52:50  
-2025-05-26 21:52:50  Run `npm audit` for details.
-2025-05-26 21:52:53  
-2025-05-26 21:52:53  up to date, audited 1848 packages in 4s
-2025-05-26 21:52:53  
-2025-05-26 21:52:53  156 packages are looking for funding
-2025-05-26 21:52:53    run `npm fund` for details
-2025-05-26 21:52:54  
-2025-05-26 21:52:54  157 vulnerabilities (124 moderate, 30 high, 3 critical)
-2025-05-26 21:52:54  
-2025-05-26 21:52:54  To address issues that do not require attention, run:
-2025-05-26 21:52:54    npm audit fix
-2025-05-26 21:52:54  
-2025-05-26 21:52:54  To address all issues (including breaking changes), run:
-2025-05-26 21:52:54    npm audit fix --force
-2025-05-26 21:52:54  
-2025-05-26 21:52:54  Run `npm audit` for details.
-2025-05-26 21:52:54  [34m[1m==>(B[m [1mRunning build command 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'...(B[m
-2025-05-26 21:52:54  
-2025-05-26 21:52:54  > word-game-ui@0.1.0 build
-2025-05-26 21:52:54  > react-scripts build
-2025-05-26 21:52:54  
-2025-05-26 21:52:55  Creating an optimized production build...
-2025-05-26 21:52:59  Compiled with warnings.
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  ./src/App.js
-2025-05-26 21:52:59    Line 15:20:  'setTestMode' is assigned a value but never used                                                                      no-unused-vars
-2025-05-26 21:52:59    Line 36:6:   React Hook useEffect has a missing dependency: 'fetchSimilarWords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  Search for the keywords to learn more about each warning.
-2025-05-26 21:52:59  To ignore, add // eslint-disable-next-line to the line before.
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  File sizes after gzip:
-2025-05-26 21:52:59  
-2025-05-26 21:52:59    98.24 KB  build/static/js/2.a47925a2.chunk.js
-2025-05-26 21:52:59    1.73 KB   build/static/js/3.c1293557.chunk.js
-2025-05-26 21:52:59    1.28 KB   build/static/js/main.860ba9c9.chunk.js
-2025-05-26 21:52:59    1.17 KB   build/static/js/runtime-main.6d951d5b.js
-2025-05-26 21:52:59    565 B     build/static/css/main.3f6c8902.chunk.css
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  The project was built assuming it is hosted at /.
-2025-05-26 21:52:59  You can control this with the homepage field in your package.json.
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  The build folder is ready to be deployed.
-2025-05-26 21:52:59  You may serve it with a static server:
-2025-05-26 21:52:59  
-2025-05-26 21:52:59    npm install -g serve
-2025-05-26 21:52:59    serve -s build
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  Find out more about deployment here:
-2025-05-26 21:52:59  
-2025-05-26 21:52:59    bit.ly/CRA-deploy
-2025-05-26 21:52:59  
-2025-05-26 21:52:59  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
-2025-05-26 21:52:59  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
-2025-05-26 21:52:59  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
-2025-05-26 21:52:59  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
-2025-05-26 21:52:59  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
-2025-05-26 21:52:59  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
-2025-05-26 21:53:01  [34m[1m==>(B[m [1mUploading build...(B[m
-2025-05-26 21:53:08  [32m[1m==>(B[m [1mYour site is live 🎉(B[m
-2025-05-26 22:07:06  [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
-2025-05-26 22:07:06  [34m[1m==>(B[m [1mCloning from https://github.com/caleb3296/WordGame2025(B[m
-2025-05-26 22:07:12  [34m[1m==>(B[m [1mChecking out commit 22cc43f8ed0f8610d58b181baf6eb8d4ad49210d in branch main(B[m
-2025-05-26 22:07:17  [34m[1m==>(B[m [1mInstalling dependencies with npm...(B[m
-2025-05-26 22:07:17  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
-2025-05-26 22:07:18  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
-2025-05-26 22:07:18  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
-2025-05-26 22:07:18  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
-2025-05-26 22:07:18  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
-2025-05-26 22:07:18  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
-2025-05-26 22:07:19  [34m[1m==>(B[m [1mUsing Bun version 1.1.0 (default)(B[m
-2025-05-26 22:07:19  [34m[1m==>(B[m [1mDocs on specifying a bun version: https://render.com/docs/bun-version(B[m
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  added 1847 packages, and audited 1848 packages in 20s
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  156 packages are looking for funding
-2025-05-26 22:07:40    run `npm fund` for details
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  157 vulnerabilities (124 moderate, 30 high, 3 critical)
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  To address issues that do not require attention, run:
-2025-05-26 22:07:40    npm audit fix
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  To address all issues (including breaking changes), run:
-2025-05-26 22:07:40    npm audit fix --force
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  Run `npm audit` for details.
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  up to date, audited 1848 packages in 5s
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  156 packages are looking for funding
-2025-05-26 22:07:45    run `npm fund` for details
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  157 vulnerabilities (124 moderate, 30 high, 3 critical)
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  To address issues that do not require attention, run:
-2025-05-26 22:07:45    npm audit fix
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  To address all issues (including breaking changes), run:
-2025-05-26 22:07:45    npm audit fix --force
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  Run `npm audit` for details.
-2025-05-26 22:07:45  [34m[1m==>(B[m [1mRunning build command 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'...(B[m
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  > word-game-ui@0.1.0 build
-2025-05-26 22:07:45  > react-scripts build
-2025-05-26 22:07:45  
-2025-05-26 22:07:46  Creating an optimized production build...
-2025-05-26 22:07:55  Compiled with warnings.
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  ./src/App.js
-2025-05-26 22:07:55    Line 15:20:  'setTestMode' is assigned a value but never used                                                                      no-unused-vars
-2025-05-26 22:07:55    Line 36:6:   React Hook useEffect has a missing dependency: 'fetchSimilarWords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  Search for the keywords to learn more about each warning.
-2025-05-26 22:07:55  To ignore, add // eslint-disable-next-line to the line before.
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  File sizes after gzip:
-2025-05-26 22:07:55  
-2025-05-26 22:07:55    98.24 KB  build/static/js/2.a47925a2.chunk.js
-2025-05-26 22:07:55    1.73 KB   build/static/js/3.c1293557.chunk.js
-2025-05-26 22:07:55    1.28 KB   build/static/js/main.860ba9c9.chunk.js
-2025-05-26 22:07:55    1.17 KB   build/static/js/runtime-main.6d951d5b.js
-2025-05-26 22:07:55    565 B     build/static/css/main.3f6c8902.chunk.css
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  The project was built assuming it is hosted at /.
-2025-05-26 22:07:55  You can control this with the homepage field in your package.json.
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  The build folder is ready to be deployed.
-2025-05-26 22:07:55  You may serve it with a static server:
-2025-05-26 22:07:55  
-2025-05-26 22:07:55    npm install -g serve
 2025-05-26 22:07:55    serve -s build
 2025-05-26 22:07:55  
 2025-05-26 22:07:55  Find out more about deployment here:
@@ -184,89 +12,89 @@
 2025-05-26 22:07:56  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
 2025-05-26 22:07:56  [34m[1m==>(B[m [1mUploading build...(B[m
 2025-05-26 22:08:03  [32m[1m==>(B[m [1mYour site is live 🎉(B[m
-                                                                                                                                                                  2025-05-26 22:07:06  [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
-2025-05-26 22:07:06  [34m[1m==>(B[m [1mCloning from https://github.com/caleb3296/WordGame2025(B[m
-2025-05-26 22:07:12  [34m[1m==>(B[m [1mChecking out commit 22cc43f8ed0f8610d58b181baf6eb8d4ad49210d in branch main(B[m
-2025-05-26 22:07:17  [34m[1m==>(B[m [1mInstalling dependencies with npm...(B[m
-2025-05-26 22:07:17  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
-2025-05-26 22:07:18  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
-2025-05-26 22:07:18  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
-2025-05-26 22:07:18  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
-2025-05-26 22:07:18  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
-2025-05-26 22:07:18  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
-2025-05-26 22:07:19  [34m[1m==>(B[m [1mUsing Bun version 1.1.0 (default)(B[m
-2025-05-26 22:07:19  [34m[1m==>(B[m [1mDocs on specifying a bun version: https://render.com/docs/bun-version(B[m
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  added 1847 packages, and audited 1848 packages in 20s
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  156 packages are looking for funding
-2025-05-26 22:07:40    run `npm fund` for details
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  157 vulnerabilities (124 moderate, 30 high, 3 critical)
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  To address issues that do not require attention, run:
-2025-05-26 22:07:40    npm audit fix
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  To address all issues (including breaking changes), run:
-2025-05-26 22:07:40    npm audit fix --force
-2025-05-26 22:07:40  
-2025-05-26 22:07:40  Run `npm audit` for details.
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  up to date, audited 1848 packages in 5s
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  156 packages are looking for funding
-2025-05-26 22:07:45    run `npm fund` for details
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  157 vulnerabilities (124 moderate, 30 high, 3 critical)
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  To address issues that do not require attention, run:
-2025-05-26 22:07:45    npm audit fix
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  To address all issues (including breaking changes), run:
-2025-05-26 22:07:45    npm audit fix --force
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  Run `npm audit` for details.
-2025-05-26 22:07:45  [34m[1m==>(B[m [1mRunning build command 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'...(B[m
-2025-05-26 22:07:45  
-2025-05-26 22:07:45  > word-game-ui@0.1.0 build
-2025-05-26 22:07:45  > react-scripts build
-2025-05-26 22:07:45  
-2025-05-26 22:07:46  Creating an optimized production build...
-2025-05-26 22:07:55  Compiled with warnings.
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  ./src/App.js
-2025-05-26 22:07:55    Line 15:20:  'setTestMode' is assigned a value but never used                                                                      no-unused-vars
-2025-05-26 22:07:55    Line 36:6:   React Hook useEffect has a missing dependency: 'fetchSimilarWords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  Search for the keywords to learn more about each warning.
-2025-05-26 22:07:55  To ignore, add // eslint-disable-next-line to the line before.
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  File sizes after gzip:
-2025-05-26 22:07:55  
-2025-05-26 22:07:55    98.24 KB  build/static/js/2.a47925a2.chunk.js
-2025-05-26 22:07:55    1.73 KB   build/static/js/3.c1293557.chunk.js
-2025-05-26 22:07:55    1.28 KB   build/static/js/main.860ba9c9.chunk.js
-2025-05-26 22:07:55    1.17 KB   build/static/js/runtime-main.6d951d5b.js
-2025-05-26 22:07:55    565 B     build/static/css/main.3f6c8902.chunk.css
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  The project was built assuming it is hosted at /.
-2025-05-26 22:07:55  You can control this with the homepage field in your package.json.
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  The build folder is ready to be deployed.
-2025-05-26 22:07:55  You may serve it with a static server:
-2025-05-26 22:07:55  
-2025-05-26 22:07:55    npm install -g serve
-2025-05-26 22:07:55    serve -s build
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  Find out more about deployment here:
-2025-05-26 22:07:55  
-2025-05-26 22:07:55    bit.ly/CRA-deploy
-2025-05-26 22:07:55  
-2025-05-26 22:07:55  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
-2025-05-26 22:07:55  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
-2025-05-26 22:07:56  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
-2025-05-26 22:07:56  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
-2025-05-26 22:07:56  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
-2025-05-26 22:07:56  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
-2025-05-26 22:07:56  [34m[1m==>(B[m [1mUploading build...(B[m
-2025-05-26 22:08:03  [32m[1m==>(B[m [1mYour site is live 🎉(B[m
+2025-05-26 22:12:59  [34m[1m==>(B[m [1mIt looks like we don't have access to your repo, but we'll try to clone it anyway.(B[m
+2025-05-26 22:12:59  [34m[1m==>(B[m [1mCloning from https://github.com/caleb3296/WordGame2025(B[m
+2025-05-26 22:13:06  [34m[1m==>(B[m [1mChecking out commit 0f270564bb8ca23ac401833f7b331db0e3179edc in branch main(B[m
+2025-05-26 22:13:10  [34m[1m==>(B[m [1mInstalling dependencies with npm...(B[m
+2025-05-26 22:13:10  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
+2025-05-26 22:13:11  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
+2025-05-26 22:13:11  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
+2025-05-26 22:13:11  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
+2025-05-26 22:13:11  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
+2025-05-26 22:13:11  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
+2025-05-26 22:13:13  [34m[1m==>(B[m [1mUsing Bun version 1.1.0 (default)(B[m
+2025-05-26 22:13:13  [34m[1m==>(B[m [1mDocs on specifying a bun version: https://render.com/docs/bun-version(B[m
+2025-05-26 22:13:35  
+2025-05-26 22:13:35  added 1847 packages, and audited 1848 packages in 22s
+2025-05-26 22:13:35  
+2025-05-26 22:13:35  156 packages are looking for funding
+2025-05-26 22:13:35    run `npm fund` for details
+2025-05-26 22:13:35  
+2025-05-26 22:13:35  157 vulnerabilities (124 moderate, 30 high, 3 critical)
+2025-05-26 22:13:35  
+2025-05-26 22:13:35  To address issues that do not require attention, run:
+2025-05-26 22:13:35    npm audit fix
+2025-05-26 22:13:35  
+2025-05-26 22:13:35  To address all issues (including breaking changes), run:
+2025-05-26 22:13:35    npm audit fix --force
+2025-05-26 22:13:35  
+2025-05-26 22:13:35  Run `npm audit` for details.
+2025-05-26 22:13:39  
+2025-05-26 22:13:39  up to date, audited 1848 packages in 4s
+2025-05-26 22:13:39  
+2025-05-26 22:13:39  156 packages are looking for funding
+2025-05-26 22:13:39    run `npm fund` for details
+2025-05-26 22:13:40  
+2025-05-26 22:13:40  157 vulnerabilities (124 moderate, 30 high, 3 critical)
+2025-05-26 22:13:40  
+2025-05-26 22:13:40  To address issues that do not require attention, run:
+2025-05-26 22:13:40    npm audit fix
+2025-05-26 22:13:40  
+2025-05-26 22:13:40  To address all issues (including breaking changes), run:
+2025-05-26 22:13:40    npm audit fix --force
+2025-05-26 22:13:40  
+2025-05-26 22:13:40  Run `npm audit` for details.
+2025-05-26 22:13:40  [34m[1m==>(B[m [1mRunning build command 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'...(B[m
+2025-05-26 22:13:40  
+2025-05-26 22:13:40  > word-game-ui@0.1.0 build
+2025-05-26 22:13:40  > react-scripts build
+2025-05-26 22:13:40  
+2025-05-26 22:13:41  Creating an optimized production build...
+2025-05-26 22:13:51  Compiled with warnings.
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  ./src/App.js
+2025-05-26 22:13:51    Line 15:20:  'setTestMode' is assigned a value but never used                                                                      no-unused-vars
+2025-05-26 22:13:51    Line 36:6:   React Hook useEffect has a missing dependency: 'fetchSimilarWords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  Search for the keywords to learn more about each warning.
+2025-05-26 22:13:51  To ignore, add // eslint-disable-next-line to the line before.
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  File sizes after gzip:
+2025-05-26 22:13:51  
+2025-05-26 22:13:51    98.24 KB  build/static/js/2.a47925a2.chunk.js
+2025-05-26 22:13:51    1.73 KB   build/static/js/3.c1293557.chunk.js
+2025-05-26 22:13:51    1.28 KB   build/static/js/main.860ba9c9.chunk.js
+2025-05-26 22:13:51    1.17 KB   build/static/js/runtime-main.6d951d5b.js
+2025-05-26 22:13:51    565 B     build/static/css/main.893b3fc5.chunk.css
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  The project was built assuming it is hosted at /.
+2025-05-26 22:13:51  You can control this with the homepage field in your package.json.
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  The build folder is ready to be deployed.
+2025-05-26 22:13:51  You may serve it with a static server:
+2025-05-26 22:13:51  
+2025-05-26 22:13:51    npm install -g serve
+2025-05-26 22:13:51    serve -s build
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  Find out more about deployment here:
+2025-05-26 22:13:51  
+2025-05-26 22:13:51    bit.ly/CRA-deploy
+2025-05-26 22:13:51  
+2025-05-26 22:13:51  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
+2025-05-26 22:13:51  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via /opt/render/project/src/word-game-ui/package.json(B[m
+2025-05-26 22:13:51  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
+2025-05-26 22:13:51  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
+2025-05-26 22:13:51  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
+2025-05-26 22:13:51  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
+2025-05-26 22:13:52  [34m[1m==>(B[m [1mUploading build...(B[m
+2025-05-26 22:13:59  [32m[1m==>(B[m [1mYour site is live 🎉(B[m

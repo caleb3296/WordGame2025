@@ -47,3 +47,33 @@ button:hover {
   font-size: 16px;
   cursor: pointer;
 }
+
+.navbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.hamburger {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}

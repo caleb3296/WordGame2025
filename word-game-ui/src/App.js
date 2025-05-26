@@ -1,7 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // ✅ Add routing
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Navbar from "./Navbar";  // ✅ Import Navbar
+import NotFound from "./NotFound";  // ✅ Import NotFound
+
+// ✅ Now `Navbar` and `NotFound` are used correctly!
 
 const API_BASE_URL =
   process.env.NODE_ENV === "development"
@@ -155,6 +159,7 @@ function App() {
               </Link>
             </div>
           } />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
