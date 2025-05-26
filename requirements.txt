@@ -25,6 +25,7 @@ pydantic-core==2.27.2
 PySocks==1.7.1
 pytest==8.3.5
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 pytz==2025.2
 requests==2.32.3
 scipy==1.10.1

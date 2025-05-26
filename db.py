@@ -1,12 +1,24 @@
+import os
 from sqlalchemy import create_engine, Column, Integer, String, TIMESTAMP, func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 
-# ✅ Replace 'yourpassword' with your actual PostgreSQL password
-DATABASE_URL = "postgresql://postgres:Derkaderka2@localhost/wordgame_leaderboard"
+# ✅ Load environment variables
+load_dotenv()
 
-# ✅ Set up the database engine
-engine = create_engine(DATABASE_URL, pool_size=10, max_overflow=20)  # Added connection pooling
+# ✅ Validate database connection string
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("❌ ERROR: DATABASE_URL not set! Ensure your .env file or Render environment variables are correctly configured.")
+
+# ✅ Set up the database engine with connection pooling
+try:
+    engine = create_engine(DATABASE_URL, pool_size=10, max_overflow=20)
+except Exception as e:
+    raise RuntimeError(f"❌ ERROR: Unable to connect to database. Details: {e}")
+
+# ✅ Create session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
@@ -21,11 +33,19 @@ class LeaderboardEntry(Base):
 
 # ✅ Dependency for Database Session
 def get_db():
+    """Provide a database session, ensuring it's safely closed after use."""
     db = SessionLocal()
     try:
         yield db
+    except Exception as e:
+        db.rollback()  # ✅ Prevent potential session corruption
+        raise e
     finally:
         db.close()
 
 # ✅ Create all tables (run this once at startup)
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+    print("✅ Database tables successfully created!")
+except Exception as e:
+    raise RuntimeError(f"❌ ERROR: Failed to create database tables. Details: {e}")
