@@ -10,4 +10,4 @@ test_api.py::test_post_leaderboard_entry PASSED                          [ 50%]
 test_api.py::test_get_start PASSED                                       [ 75%]
 test_api.py::test_get_similar_words PASSED                               [100%]
 
-========================= 4 passed, 1 warning in 5.97s =========================
+========================= 4 passed, 1 warning in 6.02s =========================
