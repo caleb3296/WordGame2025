@@ -43,13 +43,13 @@ DEPLOY_ID=$(echo "y" | render deploys create srv-d0p3ui0dl3ps73afh78g --clear-ca
 echo "📡 Backend deployment ID: $DEPLOY_ID"
 
 # ✅ Stream live logs without locking the terminal
-render logs -r srv-d0p3ui0dl3ps73afh78g --tail | tee logs/backend_live.log &
+render logs -r srv-d0p3ui0dl3ps73afh78g --tail --output text | tee logs/backend_live.log
 
 # ✅ Deploy frontend & immediately start tailing logs
 echo "🟢 Deploying frontend..."
 DEPLOY_ID=$(echo "y" | render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log | awk '/Deploy dep-/ {print $NF}')
 echo "📡 Frontend deployment ID: $DEPLOY_ID"
 
-render logs -r srv-d0p7d68dl3ps73aho80g --tail | tee logs/frontend_live.log &
+render logs -r srv-d0p7d68dl3ps73aho80g --tail --output text | tee logs/frontend_live.log &
 
 echo "🎉 Deployment successful!"

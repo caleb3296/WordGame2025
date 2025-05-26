@@ -1,11 +1,100 @@
-[?25l[?1049h[2J[1;1H[?25l[?2004h⣽  Loading...[1;0H[D[2K⣻  Loading...[1;0H[D[2K⢿  Loading...[1;0H[D[2K⣽  Loading...[1;0H[D[2K⣻  Loading...[1;0H[D[2K⢿  Loading...[1;0H[D[2K⡿  Loading...[1;0H[D[2K⣟  Loading...[1;0H[D[2K⣯  Loading...[1;0H[D[2K⣷  Loading...[1;0H[D[2K                                                                                              
-My Workspace > Logs                                                                           
-                                                                                              
-No logs to show. New log entries that match your search parameters will appear here.          
-                                                                                              
-↓/j down • ↑/k up • f/pgdn page down • b/pgup page up • d ½ page down • u ½ page up • / filter
-                                                                                              
-                                                                                              
-[Ctrl+C]: Quit  [Ctrl+S]: Copy command to clipboard                                           [9;0H[A[A[A[A[A[2K[A[A[A[D[2K                                                                                              
-[B[B                                                                                              
-[B[B[B[B[9;0H
+2025-05-26 21:12:19     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 8.3 MB/s eta 0:00:00
+2025-05-26 21:12:19  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+2025-05-26 21:12:19     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 8.6 MB/s eta 0:00:00
+2025-05-26 21:12:19  Downloading idna-3.10-py3-none-any.whl (70 kB)
+2025-05-26 21:12:19     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 8.1 MB/s eta 0:00:00
+2025-05-26 21:12:19  Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+2025-05-26 21:12:20  Downloading numpy-1.24.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 90.9 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.5/66.5 kB 10.6 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading pandas-2.0.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.2/12.2 MB 106.4 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+2025-05-26 21:12:20  Downloading pydantic-2.10.6-py3-none-any.whl (431 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 431.7/431.7 kB 59.4 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading pydantic_core-2.27.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 96.9 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading PySocks-1.7.1-py3-none-any.whl (16 kB)
+2025-05-26 21:12:20  Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.6/343.6 kB 41.0 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 35.3 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+2025-05-26 21:12:20  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 55.3 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 11.7 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading scipy-1.10.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.1 MB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.1/34.1 MB 66.1 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-05-26 21:12:20  Downloading smart_open-7.1.0-py3-none-any.whl (61 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.7/61.7 kB 10.1 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+2025-05-26 21:12:20  Downloading soupsieve-2.7-py3-none-any.whl (36 kB)
+2025-05-26 21:12:20  Downloading sqlalchemy-2.0.41-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 103.7 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading starlette-0.44.0-py3-none-any.whl (73 kB)
+2025-05-26 21:12:20     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.4/73.4 kB 10.3 MB/s eta 0:00:00
+2025-05-26 21:12:20  Downloading tomli-2.2.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (236 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 236.0/236.0 kB 31.7 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 13.8 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.8/45.8 kB 6.0 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 39.1 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading urllib3-2.2.3-py3-none-any.whl (126 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.3/126.3 kB 18.2 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading uvicorn-0.33.0-py3-none-any.whl (62 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.3/62.3 kB 7.8 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading uvloop-0.21.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.0 MB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 84.1 MB/s eta 0:00:00
+2025-05-26 21:12:21  Downloading wrapt-1.17.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (83 kB)
+2025-05-26 21:12:21     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.2/83.2 kB 9.3 MB/s eta 0:00:00
+2025-05-26 21:12:21  Building wheels for collected packages: psycopg2
+2025-05-26 21:12:21    Building wheel for psycopg2 (pyproject.toml): started
+2025-05-26 21:12:27  INFO:gensim.utils:loading KeyedVectors object from ./filtered_vectors.bin
+2025-05-26 21:12:27  DEBUG:smart_open.smart_open_lib:{'uri': './filtered_vectors.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'compression': 'infer_from_extension', 'transport_params': None}
+2025-05-26 21:12:28  INFO:gensim.utils:loading vectors from ./filtered_vectors.bin.vectors.npy with mmap=None
+2025-05-26 21:12:28  INFO:gensim.utils:KeyedVectors lifecycle event {'fname': './filtered_vectors.bin', 'datetime': '2025-05-26T21:12:28.492832', 'gensim': '4.3.3', 'python': '3.11.11 (main, Apr  8 2025, 04:27:35) [GCC 12.2.0]', 'platform': 'Linux-6.8.0-1029-aws-x86_64-with-glibc2.36', 'event': 'loaded'}
+2025-05-26 21:12:30    Building wheel for psycopg2 (pyproject.toml): finished with status 'done'
+2025-05-26 21:12:30    Created wheel for psycopg2: filename=psycopg2-2.9.10-cp311-cp311-linux_x86_64.whl size=495114 sha256=e2d1fba7bc741446c1671b504302a3a2eec553e927e2f62574303605df90c562
+2025-05-26 21:12:30    Stored in directory: /opt/render/.cache/wheels/d9/83/60/e9660320860aef3c38a67dea6ff9538e4cad76502cb39ed280
+2025-05-26 21:12:30  Successfully built psycopg2
+2025-05-26 21:12:30  Installing collected packages: pytz, wrapt, uvloop, urllib3, tzdata, typing-extensions, tqdm, tomli, soupsieve, sniffio, six, python-dotenv, PySocks, psycopg2, pluggy, packaging, numpy, iniconfig, idna, h11, greenlet, filelock, click, charset-normalizer, certifi, annotated-types, uvicorn, sqlalchemy, smart-open, scipy, requests, python-dateutil, pytest, pydantic-core, httpcore, exceptiongroup, beautifulsoup4, anyio, starlette, pydantic, pandas, httpx, gensim, gdown, fastapi
+2025-05-26 21:12:31  INFO:     Started server process [65]
+2025-05-26 21:12:31  INFO:     Waiting for application startup.
+2025-05-26 21:12:31  INFO:     Application startup complete.
+2025-05-26 21:12:31  INFO:     Uvicorn running on http://0.0.0.0:10000 (Press CTRL+C to quit)
+2025-05-26 21:12:46  Successfully installed PySocks-1.7.1 annotated-types-0.7.0 anyio-4.5.2 beautifulsoup4-4.13.4 certifi-2025.4.26 charset-normalizer-3.4.2 click-8.1.8 exceptiongroup-1.3.0 fastapi-0.115.12 filelock-3.16.1 gdown-5.2.0 gensim-4.3.3 greenlet-3.1.1 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.10 iniconfig-2.1.0 numpy-1.24.4 packaging-25.0 pandas-2.0.3 pluggy-1.5.0 psycopg2-2.9.10 pydantic-2.10.6 pydantic-core-2.27.2 pytest-8.3.5 python-dateutil-2.9.0.post0 python-dotenv-1.0.1 pytz-2025.2 requests-2.32.3 scipy-1.10.1 six-1.17.0 smart-open-7.1.0 sniffio-1.3.1 soupsieve-2.7 sqlalchemy-2.0.41 starlette-0.44.0 tomli-2.2.1 tqdm-4.67.1 typing-extensions-4.13.2 tzdata-2025.2 urllib3-2.2.3 uvicorn-0.33.0 uvloop-0.21.0 wrapt-1.17.2
+2025-05-26 21:12:46  
+2025-05-26 21:12:46  [notice] A new release of pip is available: 24.0 -> 25.1.1
+2025-05-26 21:12:46  [notice] To update, run: pip install --upgrade pip
+2025-05-26 21:12:47  [34m[1m==>(B[m [1mRequesting Node.js version 18.x(B[m
+2025-05-26 21:12:47  [34m[1m==>(B[m [1mUsing Node.js version 18.20.8 via ./word-game-ui/package.json(B[m
+2025-05-26 21:12:47  [33m[1m==>(B[m [1mNode.js version 18.20.8 has reached end-of-life.(B[m
+2025-05-26 21:12:47  [33m[1m==>(B[m [1mUpgrade to a maintained version to receive important security updates.(B[m
+2025-05-26 21:12:47  [33m[1m==>(B[m [1mInformation on maintained Node.js versions: https://nodejs.org/en/about/previous-releases(B[m
+2025-05-26 21:12:47  [34m[1m==>(B[m [1mDocs on specifying a Node.js version: https://render.com/docs/node-version(B[m
+2025-05-26 21:12:51  [34;1m==>[0;22m [1mUploading build...[22m
+2025-05-26 21:13:12  [34;1m==>[0;22m [1mUploaded in 17.7s. Compression took 3.4s[22m
+2025-05-26 21:13:12  [32;1m==>[0;22m [1mBuild successful 🎉[22m
+2025-05-26 21:13:26  [0;34m[1m==> [0m[1mDeploying...[0m
+2025-05-26 21:13:36  INFO:     Shutting down
+2025-05-26 21:13:36  INFO:     Waiting for application shutdown.
+2025-05-26 21:13:36  INFO:     Application shutdown complete.
+2025-05-26 21:13:36  INFO:     Finished server process [84]
+2025-05-26 21:13:56  [32m[1m==>(B[m [1mRunning 'uvicorn main:app --host 0.0.0.0 --port $PORT'(B[m
+2025-05-26 21:14:11  INFO:gensim.utils:loading KeyedVectors object from ./filtered_vectors.bin
+2025-05-26 21:14:11  DEBUG:smart_open.smart_open_lib:{'uri': './filtered_vectors.bin', 'mode': 'rb', 'buffering': -1, 'encoding': None, 'errors': None, 'newline': None, 'closefd': True, 'opener': None, 'compression': 'infer_from_extension', 'transport_params': None}
+2025-05-26 21:14:11  INFO:gensim.utils:loading vectors from ./filtered_vectors.bin.vectors.npy with mmap=None
+2025-05-26 21:14:12  INFO:gensim.utils:KeyedVectors lifecycle event {'fname': './filtered_vectors.bin', 'datetime': '2025-05-26T21:14:12.864306', 'gensim': '4.3.3', 'python': '3.11.11 (main, Apr  8 2025, 04:27:35) [GCC 12.2.0]', 'platform': 'Linux-6.8.0-1029-aws-x86_64-with-glibc2.36', 'event': 'loaded'}
+2025-05-26 21:14:14  INFO:     Started server process [83]
+2025-05-26 21:14:14  INFO:     Waiting for application startup.
+2025-05-26 21:14:14  INFO:     Application startup complete.
+2025-05-26 21:14:14  INFO:     Uvicorn running on http://0.0.0.0:10000 (Press CTRL+C to quit)
+2025-05-26 21:14:15  ✅ Database tables successfully created!
+2025-05-26 21:14:15  INFO:     127.0.0.1:40906 - "HEAD / HTTP/1.1" 405 Method Not Allowed
+2025-05-26 21:14:16  [0;32m[1m==> [0m[1mYour service is live 🎉[0m
+2025-05-26 21:14:17  INFO:     34.82.242.193:0 - "GET / HTTP/1.1" 200 OK
