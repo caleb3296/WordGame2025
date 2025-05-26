@@ -37,18 +37,19 @@ git commit -m "$commit_message"
 echo "⬆ Pushing to remote..."
 git push origin main | tee logs/git_push.log
 
-# ✅ Deploy backend & capture logs
+# ✅ Deploy backend & immediately start tailing logs
 echo "🟢 Deploying backend..."
-echo "🟢 Deploying backend..."
-echo "y" | render deploys create srv-d0p3ui0dl3ps73afh78g --clear-cache --wait | tee logs/backend_deploy.log
-
+DEPLOY_ID=$(echo "y" | render deploys create srv-d0p3ui0dl3ps73afh78g --clear-cache --wait | tee logs/backend_deploy.log | awk '/Deploy dep-/ {print $NF}')
 echo "📡 Backend deployment ID: $DEPLOY_ID"
-nohup render logs -r srv-d0p3ui0dl3ps73afh78g --tail > logs/backend_live.log 2>&1 &
 
-# ✅ Deploy frontend & capture logs
+# ✅ Stream live logs without locking the terminal
+render logs -r srv-d0p3ui0dl3ps73afh78g --tail | tee logs/backend_live.log &
+
+# ✅ Deploy frontend & immediately start tailing logs
 echo "🟢 Deploying frontend..."
-echo "y" | render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log
+DEPLOY_ID=$(echo "y" | render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log | awk '/Deploy dep-/ {print $NF}')
 echo "📡 Frontend deployment ID: $DEPLOY_ID"
-nohup render logs -r srv-d0p7d68dl3ps73aho80g --tail > logs/frontend_live.log 2>&1 &
+
+render logs -r srv-d0p7d68dl3ps73aho80g --tail | tee logs/frontend_live.log &
 
 echo "🎉 Deployment successful!"
