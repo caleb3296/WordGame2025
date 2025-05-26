@@ -1,132 +1,24 @@
-from fastapi import FastAPI, Request, Depends  # ✅ Import Depends for dependencies
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-import random
-import pandas as pd
-from gensim.models import KeyedVectors
-from sqlalchemy.orm import Session  # ✅ Import Session for database interaction
-from db import SessionLocal, LeaderboardEntry  # ✅ Ensure database models are imported
-
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
+from routes.game_routes import game_routes  # ✅ Correct import
+from routes.leaderboard_routes import leaderboard_routes  # ✅ Correct import
 
 app = FastAPI()
 
+# CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000"  # Allow local testing
-    ],
+    allow_origins=["http://localhost:3000", "https://wordgame2025-frontend.onrender.com"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS", "HEAD"],
-    allow_headers=["*"],  # Allow all headers
+    allow_headers=["*"],
 )
 
-@app.middleware("http")
-async def handle_options_request(request: Request, call_next):
-    allowed_origins = [
-        "http://localhost:3000",
-        "https://wordgame2025-frontend.onrender.com"
-    ]
-    
-    origin = request.headers.get("Origin")
-    if request.method == "OPTIONS" and origin in allowed_origins:
-        headers = {
-            "Access-Control-Allow-Origin": origin,
-            "Access-Control-Allow-Methods": "GET, POST, OPTIONS, HEAD",
-            "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        }
-        return JSONResponse(content={}, headers=headers, status_code=200)
+# Register routes
+app.include_router(game_routes)
+app.include_router(leaderboard_routes)
 
-    response = await call_next(request)
-    return response
-
-# Paths for optimized files
-filtered_word2vec_path = "./filtered_vectors.bin"
-csv_path = "./most_common.csv"
-
-# Load Word2Vec model
-w = KeyedVectors.load(filtered_word2vec_path)
-
-# Load CSV file (Word list)
-df = pd.read_csv(csv_path)
-
-@app.api_route("/start", methods=["GET", "HEAD", "OPTIONS"])
-async def start_game(request: Request):
-    headers = {
-        "Access-Control-Allow-Origin": "https://wordgame2025-frontend.onrender.com",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, HEAD",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-    }
-
-    # Handle OPTIONS requests for CORS preflight
-    if request.method == "OPTIONS":
-        return JSONResponse(content={}, headers=headers, status_code=200)
-
-    # Handle HEAD requests
-    if request.method == "HEAD":
-        return JSONResponse(content={}, headers=headers, status_code=200)
-
-    word_limit = len(df)
-    start_word = df["Word"][random.randint(0, word_limit - 1)]
-    finish_word = df["Word"][random.randint(0, word_limit - 1)]
-
-    return JSONResponse(content={"start_word": start_word, "finish_word": finish_word}, headers=headers)
-
-@app.head("/similar/{word}")
-@app.get("/similar/{word}")
-async def get_similar_words(word: str):
-    """Fetch similar words using Word2Vec."""
-    if word in w.key_to_index:
-        words = w.most_similar(positive=[word], topn=10)
-        return JSONResponse(content={"similar_words": [w[0] for w in words]})
-    
-    # Handle HEAD requests gracefully
-    return JSONResponse(content={}, status_code=200)
-
-@app.head("/check_win/{word}/{target}")
-@app.get("/check_win/{word}/{target}")
-async def check_win(word: str, target: str):
-    """Check if the user has reached the target word."""
-    
-    # Handle HEAD requests gracefully
-    if request.method == "HEAD":
-        return JSONResponse(content={}, status_code=200)
-    
-    return JSONResponse(content={"win": word == target})
-
-### **New Test Mode Endpoint**
-@app.post("/test")
-async def test_mode(data: dict):
-    """Accepts user-defined start and finish words."""
-    start_word = data.get("start_word")
-    finish_word = data.get("finish_word")
-
-    if not start_word or not finish_word:
-        return JSONResponse(content={"error": "Both words are required!"}, status_code=400)
-
-    return JSONResponse(content={"start_word": start_word, "finish_word": finish_word})
-
-### **Fixed Leaderboard Endpoint**
-# ✅ Ensure database session dependency is included
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-@app.post("/leaderboard")
-def add_score(player_name: str, score: int, db: Session = Depends(get_db)):
-    new_entry = LeaderboardEntry(player_name=player_name, score=score)
-    db.add(new_entry)
-    db.commit()
-    return JSONResponse(content={"message": "Score added successfully!"})
-
-@app.get("/leaderboard")
-def get_leaderboard(db: Session = Depends(get_db)):
-    """Retrieve leaderboard scores."""
-    top_scores = db.query(LeaderboardEntry).order_by(LeaderboardEntry.score.desc()).limit(10).all()
-    return JSONResponse(content={"leaderboard": [{"player": entry.player_name, "score": entry.score} for entry in top_scores]})
+# ✅ Base Route (Health Check)
+@app.get("/")
+async def root():
+    return {"message": "Word Game API is running!"}
