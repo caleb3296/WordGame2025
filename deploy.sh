@@ -39,13 +39,15 @@ git push origin main | tee logs/git_push.log
 
 # ✅ Deploy backend & capture logs
 echo "🟢 Deploying backend..."
-DEPLOY_ID=$(render deploys create srv-d0p3ui0dl3ps73afh78g --clear-cache --wait | tee logs/backend_deploy.log | awk '/Deploy dep-/ {print $NF}')
+echo "🟢 Deploying backend..."
+echo "y" | render deploys create srv-d0p3ui0dl3ps73afh78g --clear-cache --wait | tee logs/backend_deploy.log
+
 echo "📡 Backend deployment ID: $DEPLOY_ID"
 nohup render logs -r srv-d0p3ui0dl3ps73afh78g --tail > logs/backend_live.log 2>&1 &
 
 # ✅ Deploy frontend & capture logs
 echo "🟢 Deploying frontend..."
-DEPLOY_ID=$(render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log | awk '/Deploy dep-/ {print $NF}')
+echo "y" | render deploys create srv-d0p7d68dl3ps73aho80g --clear-cache --wait | tee logs/frontend_deploy.log
 echo "📡 Frontend deployment ID: $DEPLOY_ID"
 nohup render logs -r srv-d0p7d68dl3ps73aho80g --tail > logs/frontend_live.log 2>&1 &
 
