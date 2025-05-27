@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.game_routes import game_routes  # ✅ Correct import
 from routes.leaderboard_routes import leaderboard_routes  # ✅ Correct import
+from backend.game_visualization import game_routes  # ✅ Explicit backend module path
+
 
 app = FastAPI()
 
